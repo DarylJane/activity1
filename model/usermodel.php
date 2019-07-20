@@ -12,7 +12,7 @@ class UserModel{
         $this->db = new database();
     }
     public function insert(){
-        $sql = "INSERT INTO $this->tablename (name,contact) VALUES('$this->name','$this->contact')";
+        $sql = "INSERT INTO $this->tablename (name,email,address,contact) VALUES('$this->name','$this->email','$this->address','$this->contact')";
          if ( $this->db->execute($sql) == 1){
         return true;
        }else{
@@ -46,13 +46,7 @@ class UserModel{
         }
     
     public function __destruct(){
-        unset($this->db);
+        unset($this->usermodel);
     }
 }
-// $userModel = new UserModel();
-// $userModel->name = "Art";
-// $userModel->email = "a@y.ocm";
-// $userModel->username = "art123";
-// $userModel->password = "testpassword";
-// $userModel->insert();
 ?>
